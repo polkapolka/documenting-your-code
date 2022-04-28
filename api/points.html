@@ -89,7 +89,7 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../index.html">
-   Home
+   Homepage
   </a>
  </li>
 </ul>
@@ -106,19 +106,28 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../guides/points.html">
-   The
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     points
-    </span>
-   </code>
-   module
+   Guide to points.py module
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../guides/palette.html">
+   Guide to palette.py module
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../guides/password.html">
+   Guide to password.py module
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../guides/facts.html">
+   Guide to facts.py module
   </a>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  API Reference
+  API reference
  </span>
 </p>
 <ul class="current nav bd-sidenav">
@@ -194,6 +203,24 @@
 
             <!-- Source interaction buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fapi/points.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/executablebooks/jupyter-book/edit/master/api/points.rst"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
             <!-- Full screen (wrap in <a> to have style consistency -->
 
 <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
@@ -228,24 +255,20 @@
                 
   <div class="section" id="module-randomly.points">
 <span id="randomly-points"></span><h1>randomly.points<a class="headerlink" href="#module-randomly.points" title="Permalink to this headline">¶</a></h1>
+<p>random x,y point</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="randomly.points.generate_poisson_points">
 <span class="sig-prename descclassname"><span class="pre">randomly.points.</span></span><span class="sig-name descname"><span class="pre">generate_poisson_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bounds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span></span></span><a class="reference internal" href="../_modules/randomly/points.html#generate_poisson_points"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#randomly.points.generate_poisson_points" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create coordinate pairs from a Poisson process</p>
+<dd><p>Generate poisson distribution of points between a lower and upper bound.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>bounds</strong> (<em>Tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>, </em><em>float</em><em>, </em><em>float</em><em>]</em>) – <code class="docutils literal notranslate"><span class="pre">(minx,</span> <span class="pre">miny,</span> <span class="pre">maxx,</span> <span class="pre">maxy)</span></code> of the bounding box</p></li>
-<li><p><strong>rate</strong> (<em>float</em>) – Theoretical events per unit area across the whole space.</p></li>
+<li><p><strong>bounds</strong> – [dx_lower, dy_lower, dx_upper, dy_upper]</p></li>
+<li><p><strong>rate</strong> – float</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Array of shape <code class="docutils literal notranslate"><span class="pre">(N</span> <span class="pre">pairs,</span> <span class="pre">2)</span></code> where each pair is x and y coordinates inside the bounding box.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>np.ndarray</p>
-</dd>
 </dl>
+<p>Returns: Array containing</p>
 </dd></dl>
 
 </div>
@@ -289,7 +312,7 @@
     <footer class="footer">
   <p>
     
-      By Jacob Deppen<br/>
+      By Phebe Polk<br/>
     
         &copy; Copyright 2022.<br/>
   </p>

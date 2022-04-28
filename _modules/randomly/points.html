@@ -81,7 +81,7 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../index.html">
-   Home
+   Homepage
   </a>
  </li>
 </ul>
@@ -98,19 +98,28 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../guides/points.html">
-   The
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     points
-    </span>
-   </code>
-   module
+   Guide to points.py module
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../guides/palette.html">
+   Guide to palette.py module
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../guides/password.html">
+   Guide to password.py module
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../guides/facts.html">
+   Guide to facts.py module
   </a>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  API Reference
+  API reference
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -169,6 +178,22 @@
             
             <!-- Source interaction buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F_modules/randomly/points.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
             <!-- Full screen (wrap in <a> to have style consistency -->
 
 <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
@@ -202,39 +227,30 @@
               <div>
                 
   <h1>Source code for randomly.points</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span>
-
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">random x,y point</span>
+<span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">poisson</span><span class="p">,</span> <span class="n">uniform</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span>
 
 
 <div class="viewcode-block" id="generate_poisson_points"><a class="viewcode-back" href="../../api/points.html#randomly.points.generate_poisson_points">[docs]</a><span class="k">def</span> <span class="nf">generate_poisson_points</span><span class="p">(</span>
     <span class="n">bounds</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span> <span class="n">rate</span><span class="p">:</span> <span class="nb">float</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;Create coordinate pairs from a Poisson process</span>
+    <span class="sd">&quot;&quot;&quot;Generate poisson distribution of points between a lower and upper bound.</span>
 
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    bounds : Tuple[float, float, float, float]</span>
-<span class="sd">        ``(minx, miny, maxx, maxy)`` of the bounding box</span>
-<span class="sd">    rate : float</span>
-<span class="sd">        Theoretical events per unit area across the whole space.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        bounds: [dx_lower, dy_lower, dx_upper, dy_upper]</span>
+<span class="sd">        rate: float</span>
 
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    np.ndarray</span>
-<span class="sd">        Array of shape ``(N pairs, 2)`` where each pair is x and y coordinates inside the bounding box.</span>
+<span class="sd">    Returns: Array containing</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="c1"># Get sizes of sides of the area of interest</span>
     <span class="n">dx</span> <span class="o">=</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">dy</span> <span class="o">=</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">-</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 
-    <span class="c1"># Draw random values from Poisson distribution</span>
-    <span class="c1"># to determine how many points to place</span>
     <span class="n">N</span> <span class="o">=</span> <span class="n">poisson</span><span class="p">(</span><span class="n">rate</span> <span class="o">*</span> <span class="n">dx</span> <span class="o">*</span> <span class="n">dy</span><span class="p">)</span><span class="o">.</span><span class="n">rvs</span><span class="p">()</span>
-
-    <span class="c1"># Draw N random x and y coordinate values</span>
     <span class="n">xs</span> <span class="o">=</span> <span class="n">uniform</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span> <span class="o">+</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">ys</span> <span class="o">=</span> <span class="n">uniform</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span> <span class="o">+</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 
@@ -253,7 +269,7 @@
     <footer class="footer">
   <p>
     
-      By Jacob Deppen<br/>
+      By Phebe Polk<br/>
     
         &copy; Copyright 2022.<br/>
   </p>

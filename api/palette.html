@@ -90,7 +90,7 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../index.html">
-   Home
+   Homepage
   </a>
  </li>
 </ul>
@@ -107,19 +107,28 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../guides/points.html">
-   The
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     points
-    </span>
-   </code>
-   module
+   Guide to points.py module
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../guides/palette.html">
+   Guide to palette.py module
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../guides/password.html">
+   Guide to password.py module
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../guides/facts.html">
+   Guide to facts.py module
   </a>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  API Reference
+  API reference
  </span>
 </p>
 <ul class="current nav bd-sidenav">
@@ -195,6 +204,24 @@
 
             <!-- Source interaction buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fapi/palette.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/executablebooks/jupyter-book/edit/master/api/palette.rst"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
             <!-- Full screen (wrap in <a> to have style consistency -->
 
 <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
@@ -229,25 +256,17 @@
                 
   <div class="section" id="module-randomly.palette">
 <span id="randomly-palette"></span><h1>randomly.palette<a class="headerlink" href="#module-randomly.palette" title="Permalink to this headline">¶</a></h1>
+<p>random color palette</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="randomly.palette.plot_palette">
 <span class="sig-prename descclassname"><span class="pre">randomly.palette.</span></span><span class="sig-name descname"><span class="pre">plot_palette</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">matplotlib.figure.Figure</span></span></span><a class="reference internal" href="../_modules/randomly/palette.html#plot_palette"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#randomly.palette.plot_palette" title="Permalink to this definition">¶</a></dt>
-<dd><p>Display five color swatches side-by-side.</p>
+<dd><p>Return a series of colors for use as a palette with the</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>model</strong> (<em>{&quot;default&quot;</em><em>, </em><em>&quot;ui&quot;}</em>) – Color set to use. <code class="docutils literal notranslate"><span class="pre">&quot;default&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;ui&quot;</span></code> are always available. Other color sets rotate.
-See <a class="reference external" href="http://colormind.io/list/">colormind.io/list</a> for current options.</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>A plot of the complete 1 x 5 sequence of color patches.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>Figure</p>
-</dd>
-<dt class="field-even">Raises</dt>
-<dd class="field-even"><p><strong>ValueError</strong> – When <code class="docutils literal notranslate"><span class="pre">model</span></code> is not one of <code class="docutils literal notranslate"><span class="pre">{&quot;default&quot;,</span> <span class="pre">&quot;ui&quot;}</span></code>.</p>
+<dd class="field-odd"><p><strong>model</strong> – “default” or “ui”</p>
 </dd>
 </dl>
+<p>Returns: Figure with set color palette.</p>
 </dd></dl>
 
 </div>
@@ -298,7 +317,7 @@ See <a class="reference external" href="http://colormind.io/list/">colormind.io/
     <footer class="footer">
   <p>
     
-      By Jacob Deppen<br/>
+      By Phebe Polk<br/>
     
         &copy; Copyright 2022.<br/>
   </p>
