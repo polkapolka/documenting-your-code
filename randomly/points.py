@@ -6,8 +6,10 @@ from scipy.stats import poisson, uniform
 from typing import Tuple
 
 
-def generate_poisson_points(bounds: Tuple[float, float, float, float], rate: float) -> np.ndarray:
-    """ Generate poisson distribution of points between a lower and upper bound.
+def generate_poisson_points(
+    bounds: Tuple[float, float, float, float], rate: float
+) -> np.ndarray:
+    """Generate poisson distribution of points between a lower and upper bound.
 
     Args:
         bounds: [dx_lower, dy_lower, dx_upper, dy_upper]

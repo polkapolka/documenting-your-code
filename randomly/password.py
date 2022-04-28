@@ -6,8 +6,10 @@ import string
 from typing import Optional, Iterable
 
 
-def generate_password(chars: int, punctuation: bool, invalid_chars: Optional[Iterable[str]]=None) -> str:
-    """ Generate a valid password.
+def generate_password(
+    chars: int, punctuation: bool, invalid_chars: Optional[Iterable[str]] = None
+) -> str:
+    """Generate a valid password.
 
     Args:
         chars: number of characters in the password

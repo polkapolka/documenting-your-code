@@ -1,0 +1,14 @@
+format: jb-book
+root: index
+parts:
+  - caption: Guides
+    chapters:
+    - file: guides/install
+    - file: guides/points
+    - file: guides/palette
+    - file: guides/password
+    - file: guides/facts
+  - caption: API reference
+    chapters:
+      - glob: api/*
+
