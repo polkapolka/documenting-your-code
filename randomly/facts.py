@@ -1,8 +1,21 @@
+"""
+random facts
+"""
 import requests
 from requests.exceptions import RequestException
+from typing import Union, Dict
 
 
-def generate_random_fact(output_format, language):
+def generate_random_fact(output_format: str, language: str) -> Union[Dict, str]:
+    """Return fact from random fact url as dictionary or str.
+
+    Args:
+        output_format: html, json, txt, or md
+        language: en or de
+
+    Returns: dict or txt version of fact
+
+    """
     if language not in {"en", "de"}:
         raise ValueError(f"{language} is not supported.")
 
