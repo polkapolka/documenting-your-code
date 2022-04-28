@@ -7,5 +7,5 @@ python3 -m pip install -e .
 ```
 
 ```{tip}
-Warning: May contain nuts.
+Warning: May contain raisins and nuts.
 ```
